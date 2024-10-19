@@ -30,7 +30,7 @@ service /standard on new http:Listener(8081) {
         // Store the request in the in-memory table
         error? result = self.requestsTable.add(payload);
         if result is error {
-            return <http:BadRequest>{body: "Unsuccessuful to add request"};
+            return <http:BadRequest>{body: "Failed to add request"};
         }
 
         return <http:Created>{body: "Standard delivery request received."};
